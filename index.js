@@ -49,15 +49,16 @@ const list = [];
       (el) => el.innerHTML
     );
 
-    // const seller = await page.evaluate(() => {
-    //     const el = document.querySelector('.ui-pdp-seller__link-trigger');
-    //     return el ? el.innerHTML : null;
-    // });
+    
+    const seller = await page.evaluate(() => {
+        const el = document.querySelector('a > span.ui-pdp-color--BLUE');
+        return el ? el.innerHTML : 'Vendedor não informado!';
+    });
 
     const obj = {};
     obj.title = title;
     obj.price = price;
-    // (seller ? obj.seller = seller : 'Vendedor não informado!');
+    obj.seller = seller;
     obj.link = link;
     console.log(obj);
 
